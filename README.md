@@ -5,10 +5,39 @@
 <!-- default badges end -->
 # WPF Data Grid - Implement Cell Editing Confirmation Dialog
 
-This example demonstrates how to utilize the ValidateCell event to display a message box and either confirm changes or discard them.
+This example demonstrates how to utilize the `ValidateCell` event of GridControl's view to confirm whether cell changes should be applied. Use the `HideEditor` method of GridControl's view to discard changes.
+
+## Implementation details
+
+This solution requires handling a UI event and calling a method of a control. To do this and comply with MVVM principles, the logic is isolated to a custom behavior for TableView.
+
+```xaml
+<dxg:GridControl.View>
+    <dxg:TableView>
+        <dxmvvm:Interaction.Behaviors>
+            <local:EditCellConfirmationBehavior/>
+        </dxmvvm:Interaction.Behaviors>
+    </dxg:TableView>
+</dxg:GridControl.View>
+```
+
+The following method demonstrates how to implement validation for a specific column.
+```cs
+private void AssociatedObject_ValidateCell(object sender, GridCellValidationEventArgs e) {
+    if (e.Column.FieldName == nameof(Item.Growth) &&
+        MessageBox.Show("Do you wish to update the value?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.No) {
+        AssociatedObject.HideEditor();
+    }
+}
+```
 
 ## Files to Review
 
-## Documentation
+- [MainWindow.xaml](./CS/GridControlCellEditingConfirmationExample/MainWindow.xaml)
+- [MainViewModel.cs](./CS/GridControlCellEditingConfirmationExample/MainViewModel.cs) 
+- [EditCellConfirmationBehavior.cs](./CS/GridControlCellEditingConfirmationExample/EditCellConfirmationBehavior.cs) 
 
-## More Examples
+## Documentation
+- [ValidateCell](ValidateCell)
+- [HideEditor()](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.DataViewBase.HideEditor)
+
