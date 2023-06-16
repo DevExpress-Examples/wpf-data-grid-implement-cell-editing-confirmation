@@ -13,7 +13,7 @@ Handle the [GridViewBase.ValidateCell](https://docs.devexpress.com/WPF/DevExpres
 
 ## Implementation Details
 
-Create a custom behavior and attach it to the [TableView](https://docs.devexpress.com/WPF/6294/controls-and-libraries/data-grid/views/table-view). This behavior allows you to handle UI element events and call its methods according to the MVVM pattern:
+You can implement a custom attached behavior to interact with events and methods of a UI element ([TableView](https://docs.devexpress.com/WPF/6294/controls-and-libraries/data-grid/views/table-view) in this example) according to the MVVM pattern:
 
 ```xaml
 <dxg:GridControl.View>
@@ -48,10 +48,11 @@ public class EditCellConfirmationBehavior : Behavior<TableView> {
 ## Files to Review
 
 - [MainWindow.xaml](./CS/GridControlCellEditingConfirmationExample/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/GridControlCellEditingConfirmationExample/MainWindow.xaml))
-- [MainViewModel.cs](./CS/GridControlCellEditingConfirmationExample/MainViewModel.cs) (VB: [MainViewModel.vb](./VB/GridControlCellEditingConfirmationExample/MainViewModel.vb) )
+- [MainViewModel.cs](./CS/GridControlCellEditingConfirmationExample/MainViewModel.cs) (VB: [MainViewModel.vb](./VB/GridControlCellEditingConfirmationExample/MainViewModel.vb))
 - [EditCellConfirmationBehavior.cs](./CS/GridControlCellEditingConfirmationExample/EditCellConfirmationBehavior.cs) (VB: [EditCellConfirmationBehavior.vb](./VB/GridControlCellEditingConfirmationExample/EditCellConfirmationBehavior.vb))
 
 ## Documentation
+
 - [ValidateCell](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridViewBase.ValidateCell)
 - [HideEditor()](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.DataViewBase.HideEditor)
 - [Cell Validation](https://docs.devexpress.com/WPF/6113/controls-and-libraries/data-grid/data-editing-and-validation/input-validation/cell-validation)
