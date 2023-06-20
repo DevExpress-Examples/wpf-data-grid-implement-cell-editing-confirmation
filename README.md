@@ -8,7 +8,7 @@
 
 This example demonstrates how to invoke a confirmation dialog that allows users to apply or discard changes made in a cell.
 
-![image](https://github.com/DevExpress-Examples/wpf-data-grid-implement-cell-editing-confirmation/assets/65009440/7970e6c4-c0e9-4b67-a065-a03dc407910d)
+![image](https://github.com/DevExpress-Examples/wpf-data-grid-implement-cell-editing-confirmation/assets/65009440/5c39500f-611f-4e68-835b-19019b00fca3)
 
 Handle the [GridViewBase.ValidateCell](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridViewBase.ValidateCell) event (raised before the modified value is posted to the cell) and display a `MessageBox` with a confirmation message. If a user clicks **No**, call the [DataViewBase.HideEditor](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.DataViewBase.HideEditor) method to discard changes.
 
